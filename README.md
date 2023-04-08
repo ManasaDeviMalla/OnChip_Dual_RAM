@@ -24,3 +24,8 @@ both writing and reading of the double buffer. It should be noted that RAM 1 and
 RAM 2 are dual RAMs of size 8 × 64 bits each. If RAM 2 is in read only mode,
 then RAM 2 is automatically configured to the write only mode and vice versa.
 The RAM is written row-wise and read column-wise. 
+
+ The ‘switch_bank’ signal, which is the inverted signal of ‘rnw’, configures
+ram2 in read mode if rnw is high and in write mode if it is low. Naturally, rnw
+configures ram1 in write mode for rnw = 1 and in read mode for rnw = 0. The
+RAM data output ‘do2 or ‘do1’ is registered after a clock cycle delay at the positive edge of ‘clk_sys’.
